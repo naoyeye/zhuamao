@@ -1,0 +1,38 @@
+{{#yield-title}}首页{{/yield-title}}
+
+{{#yield-seo}}
+<meta name="keywords" content="">
+<meta name="description" content="">
+{{/yield-seo}}
+
+{{#yield-styles}}
+
+  {{#istaticEnabled}}
+  <style type="text/css">
+    {{#istaticCSS}}/app/static/third-party/css/semantic-ui.css{{/istaticCSS}}
+    {{#istaticCSS}}/app/static/homepage/index.css{{/istaticCSS}}
+  </style>
+  {{/istaticEnabled}}
+
+  {{^istaticEnabled}}
+  <link rel="stylesheet" type="text/css" href="/third-party/css/semantic-ui.css">
+  <link rel="stylesheet" type="text/css" href="/homepage/index.css">
+  {{/istaticEnabled}}
+
+{{/yield-styles}}
+
+
+{{#yield-config}}
+<script type="text/javascript">
+  var _CONFIG = {
+    'config': {
+      'name': '{{ name }}',
+      'age': {{ age }}
+    }
+  }
+</script>
+{{/yield-config}}
+
+{{#yield-scripts}}
+{{#istaticJS}}homepage/index.js{{/istaticJS}}
+{{/yield-scripts}}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{{ yield-title }}}</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3baa24">
+    {{{ yield-seo }}}
+    {{{ yield-styles }}}
+
+    {{^DEVELOPMODE}}
+    {{> bughd }}
+    {{/DEVELOPMODE}}
+  </head>
+  <body>
+
+  <div id="app">
+    <div class="ui medium text loader active">Loading</div>
+    {{{ yield }}}
+  </div>
+
+  {{^DEVELOPMODE}}
+  {{> analytics }}
+  {{/DEVELOPMODE}}
+
+  {{{ yield-config }}}
+
+  {{#istaticEnabled}}
+  <script type="text/javascript">
+  {{#istaticJS}}polyfill.js{{/istaticJS}}
+  {{#istaticJS}}third-party/js/zepto.js{{/istaticJS}}
+  </script>
+  {{/istaticEnabled}}
+
+  {{^istaticEnabled}}
+  <script type="text/javascript" src="/polyfill.js"></script>
+  <script type="text/javascript" src="/third-party/js/zepto.js"></script>
+  {{/istaticEnabled}}
+
+  <script type="text/javascript">
+  {{{ yield-scripts }}}
+  </script>
+  </body>
+</html>
