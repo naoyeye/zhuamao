@@ -1,37 +1,36 @@
 import * as types from './../constants/homepageActionTypes'
 import Fetch from 'common/utils/fetch'
 
-export function initConfig(config) {
-  return {
-    'type': types.INIT_CONFIG,
-    config
-  }
-}
+// export function initConfig(config) {
+//   return {
+//     'type': types.INIT_CONFIG,
+//     config
+//   }
+// }
 
-const url = '/api/home/shops'
-export function load(query) {
+const url = '/api/crawl'
+export function crawlImages(query) {
   return (dispatch, getState) => {
     dispatch({
-      'type': types.LOAD,
+      'type': types.CRAWL_IMAGES,
       query
     })
     return Fetch.get(url, query).then((res) => {
-      let r = parseInt(res.r, 10)
-      if (r === 0) {
+      if (!res.error) {
         return dispatch({
-          'type': types.LOAD_SUCCESS, 
+          'type': types.CRAWL_IMAGES_SUCCESS,
           res
         })
       } else {
         return dispatch({
-          'type': types.LOAD_FAIL, 
+          'type': types.CRAWL_IMAGES_FAIL,
           res
         })
       }
-    }).catch((err) => {
+    }).catch((error) => {
       return dispatch({
-        'type': types.LOAD_FAIL, 
-        err
+        'type': types.CRAWL_IMAGES_FAIL,
+        error
       })
     })
   }

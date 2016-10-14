@@ -1,6 +1,6 @@
 import 'whatwg-fetch'
 import json2string from 'common/utils/json2string'
-import { urlWithQuery, proxy2market } from './urlParse'
+import { urlWithQuery /* , proxy2market */ } from './urlParse'
 const METHODS = ['post', 'get', 'put', 'delete']
 
 // content-typs:
@@ -11,7 +11,7 @@ const METHODS = ['post', 'get', 'put', 'delete']
 const DEFAULT_HEADER = {
   'Accept': 'application/json',
   'Content-Encoding': 'gzip',
-  'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+  'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 }
 
 const DATATYPES = ['text', 'json', 'blob', 'arrayBuffer', 'formData']
@@ -26,25 +26,27 @@ function FetchGen(method) {
 
   if (!METHODS.indexOf(method) < 0) {
     throw new Error(`method error,it must one of:${METHODS.join(',')}`)
-    return false
   }
 
-  return function (url, params, restParams, customHeader,
-                   otherConfig=DEFAULT_REQUSET_CONFIG,
-                   dataType='json', originResponse=false) {
-    
-    let _url = proxy2market(url)
+  return function(url, params, restParams, customHeader,
+    otherConfig = DEFAULT_REQUSET_CONFIG,
+    dataType = 'json', originResponse = false) {
+
+    // let _url = proxy2market(url)
+    let _url = url
 
     try {
       if (process.env.NODE_ENV === 'test') {
         _url = url
       }
-    } catch (e) {}
+    } catch (e) {
+      console.log(e)
+    }
 
     if (restParams) {
-      Object.keys(restParams).map( (key) => {
-        let re = new RegExp(':'+key,'gi')
-        _url = _url.replace(re,restParams[key])
+      Object.keys(restParams).map((key) => {
+        let re = new RegExp(':' + key, 'gi')
+        _url = _url.replace(re, restParams[key])
       })
     }
 
@@ -63,12 +65,12 @@ function FetchGen(method) {
       'headers': headers,
       'mode': otherConfig.mode,
       'credentials': otherConfig.credentials,
-      'cache': otherConfig.cache,
+      'cache': otherConfig.cache
     }
 
 
     if (method !== 'get' && method !== 'head') {
-      config['body'] = parseBody(params)
+      config.body = parseBody(params)
     }
 
     let request = new Request(_url, config)

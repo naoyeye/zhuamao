@@ -1,5 +1,8 @@
 import style from './topic.scss'
-import React, { Component, PropTypes } from 'react'
+import React, {
+  Component,
+  PropTypes
+} from 'react'
 import Banner from 'common/components/banner'
 import ShopPanel from 'homepage/components/shop-panel'
 import ProductsPanel from 'homepage/components/products-panel'
@@ -7,7 +10,7 @@ import PagesPanel from 'homepage/components/pages-panel'
 
 class Topic extends Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       'subject': '',
@@ -15,15 +18,17 @@ class Topic extends Component {
     }
   }
 
-  componentDidMount () {
-    let { data } = this.props
+  componentDidMount() {
+    let {
+      data
+    } = this.props
     this.setState({
       'subject': data.subject ? data.subject : '',
       'contents': data.contents
     })
   }
 
-  render () {
+  render() {
     return (
       <div className={ style.topic }>
         { this.renderSubject() }
@@ -46,7 +51,6 @@ class Topic extends Component {
 
   renderContents() {
     let contents = this.state.contents
-
     return (
       <div className={ style.contents }>
         {
@@ -54,7 +58,7 @@ class Topic extends Component {
             if (item.key === 'banner') {
               return (
                 <div className={ style.banner }
-                     key={ `_topic_widgets_${index}`}>
+                  key={ `_topic_widgets_${index}`}>
                   <Banner images={ item.data.photos }
                           height={ item.data.height } />
                 </div>

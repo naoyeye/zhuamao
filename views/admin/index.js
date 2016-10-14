@@ -2,7 +2,7 @@
 * @Author: hanjiyun
 * @Date:   2016-09-22 10:51:50
 * @Last Modified by:   hanjiyun
-* @Last Modified time: 2016-09-22 13:58:56
+* @Last Modified time: 2016-09-29 17:44:56
 */
 
 // var moment = require('moment');
@@ -16,5 +16,5 @@ module.exports = function(req, res, next) {
     // },
     name: 'admin',
     age: 16
-  });
-};
+  })
+}

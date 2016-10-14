@@ -2,7 +2,7 @@ import style from './homepage.scss'
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import classnames from 'classnames'
+// import classnames from 'classnames'
 import * as Actions from 'homepage/actions/homepageActions'
 
 import Header from 'common/components/header'
@@ -12,7 +12,15 @@ injectTapEventPlugin()
 
 class HomepageApp extends Component {
 
-  render () {
+  static propTypes = {
+    'config': PropTypes.object.isRequired
+  }
+
+  static defaultProps = {
+    'config': null
+  }
+
+  render() {
     let { config } = this.props
     if (!config) {
       return (

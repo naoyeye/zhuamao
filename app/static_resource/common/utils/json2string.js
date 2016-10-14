@@ -1,6 +1,6 @@
 /**
  * 将 json 格式的数据解析为字符串
- * 
+ *
  * from:
  *   {
  *     'name': 'a',
@@ -11,7 +11,7 @@
  *   name=a&index=1
  */
 
-export default (data, encode, empty=false) => {
+export default (data, encode, empty = false) => {
   let _data = Object.assign({}, data)
 
   if (empty) {

@@ -8,7 +8,7 @@ Express + Hogan + React + Redux + Gulp + Webpack
 
 **install packages**
 
-`sudo npm i`
+`yarn` or `sudo yarn`
 
 **run server**
 

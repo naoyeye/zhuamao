@@ -4,15 +4,19 @@
   "private": true,
   "description": "A service for crawling cats",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/naoyeye/zhuamao"
+    "url": "https://github.com/naoyeye/zhuamao",
+    "type": "git"
   },
   "author": "J.Y Han",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "classnames": "2.2.2",
-    "eslint": "^3.5.0",
+    "eslint": "^3.6.1",
+    "eslint-config-airbnb": "^12.0.0",
     "eslint-config-google": "^0.6.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-react": "^6.3.0",
     "eventemitter3": "1.1.1",
     "font-awesome": "~4.5.0",
     "form-serialize": "~0.7.0",
@@ -20,7 +24,6 @@
     "immutable": "~3.7.4",
     "isomorphic-fetch": "~2.2.0",
     "keymirror": "0.1.1",
-    "moment": "~2.11.0",
     "mongofilter": "~1.0.5",
     "react": "~0.14.5",
     "react-dom": "~0.14.7",
@@ -38,7 +41,6 @@
   "engines": {
     "node": ">=5.0.0"
   },
-  "scripts": {},
   "dependencies": {
     "autoprefixer": "~6.3.6",
     "babel-core": "^6.6.4",
@@ -50,6 +52,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "1.14.1",
     "chai": "^3.5.0",
+    "cheerio": "^0.22.0",
     "cookie-parser": "1.4.0",
     "css-loader": "^0.23.1",
     "debug": "2.2.0",
@@ -71,7 +74,7 @@
     "lodash": "3.10.1",
     "mocha": "^2.5.3",
     "mocha-jsdom": "^1.1.0",
-    "moment": "2.10.6",
+    "moment": "2.11.0",
     "morgan": "1.6.1",
     "node-libs-browser": "^0.5.0",
     "postcss-loader": "~0.9.1",
@@ -87,5 +90,6 @@
     "whatwg-fetch": "^1.0.0",
     "yargs": "~4.1.0",
     "z-schema": "~3.17.0"
-  }
+  },
+  "main": "index.js"
 }

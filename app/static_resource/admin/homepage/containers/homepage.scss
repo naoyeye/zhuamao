@@ -2,12 +2,59 @@
 * @Author: hanjiyun
 * @Date:   2016-09-21 15:42:45
 * @Last Modified by:   hanjiyun
-* @Last Modified time: 2016-09-22 14:04:59
+* @Last Modified time: 2016-09-30 16:49:07
 */
 
 @import '~common/css/variables';
 @import '~common/css/mixins';
 
 .homepage {
-  background: $grace;
+  padding-top: 60px;
+
+  :global(.button > .refresh.icon.ui.active) {
+    background: none;
+    animation: loader .6s linear;
+    animation-iteration-count: infinite;
+  }
+
+  .main {
+    min-height: 500px;
+    text-align: center;
+  }
+
+  .buttons {
+    margin-top: 10px;
+  }
+
+  .result {
+    margin-top: 20px;
+
+    // img {
+    //   // display: block;
+    //   // max-width: 100%;
+    //   // min-height: 100px;
+    //   // max-height: 300px;
+    // }
+  }
+
+  .footer {
+    margin: 20px 0;
+    padding: 10px 0;
+    text-align: center;
+
+    .container {
+      padding: 20px 0 10px;
+    }
+  }
+}
+
+/* Active Animation */
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

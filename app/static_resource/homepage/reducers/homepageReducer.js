@@ -1,14 +1,14 @@
-import { combineReducers } from 'redux'
+// import { combineReducers } from 'redux'
 import * as types from './../constants/homepageActionTypes'
 
 let _CONFIG = window._CONFIG
 
 const INIT_STATE = {
-  'config':  _CONFIG ? _CONFIG.config : {}
+  'config': _CONFIG ? _CONFIG.config : {}
 }
 
 
-export default function homepageReducer (state=INIT_STATE, action) {
+export default function homepageReducer(state = INIT_STATE, action) {
 
   console.log('state', state)
 
@@ -19,7 +19,6 @@ export default function homepageReducer (state=INIT_STATE, action) {
         const _state = { ...state }
         return _state
       }
-      break
 
     case types.LOAD:
       {
@@ -28,19 +27,17 @@ export default function homepageReducer (state=INIT_STATE, action) {
         _state.loading = true
         return _state
       }
-      break
 
     case types.LOAD_SUCCESS:
       {
         const _state = { ...state }
         const res = action.res
         const _shops = _state.shops.concat(res.data.shops)
-        
+
         _state.loading = false
         _state.shops = _shops
         return _state
       }
-      break
 
     case types.LOAD_FAIL:
       {
@@ -49,7 +46,6 @@ export default function homepageReducer (state=INIT_STATE, action) {
         _state.error = action.error
         return _state
       }
-      break
 
     default:
       return state
@@ -57,4 +53,3 @@ export default function homepageReducer (state=INIT_STATE, action) {
   }
 
 }
-

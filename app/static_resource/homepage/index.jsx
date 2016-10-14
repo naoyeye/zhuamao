@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { Provider } from 'react-redux'
+import {
+  Provider
+} from 'react-redux'
 import configureStore from 'homepage/stores/homepageStore'
 import HomepageApp from 'homepage/containers/homepage'
 

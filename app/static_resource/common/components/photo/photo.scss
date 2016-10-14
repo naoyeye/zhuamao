@@ -1,0 +1,89 @@
+@import '~common/css/variables';
+@import '~common/css/mixins';
+
+.wrap {
+  display: block;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background-color: #eee;
+
+  &:before {
+    display: inline-block;
+    content: '';
+    width: 0;
+    margin-top: 100%;
+    vertical-align: middle;
+  }
+
+  &.ratio-100 {
+    &:before {
+      margin-top: 100%;
+    }
+  }
+
+  &.ratio-75 {
+    &:before {
+      margin-top: 75%;
+    }
+  }
+
+  &.ratio-56 {
+    &:before {
+      margin-top: 56%;
+    }
+  }
+
+  &.ratio-53 {
+    &:before {
+      margin-top: 53%;
+    }
+  }
+
+  &.ratio-50 {
+    &:before {
+      margin-top: 50%;
+    }
+  }
+
+  &:global(.loaded) {
+    &:before {
+      display: none;
+    }
+  }
+
+  .box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+
+    img,
+    :global(.loadicon) {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      vertical-align: middle;
+    }
+  }
+
+  :global(.loadicon) {
+    svg {
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -19,18 +19,18 @@ export function load(query) {
       let r = parseInt(res.r, 10)
       if (r === 0) {
         return dispatch({
-          'type': types.LOAD_SUCCESS, 
+          'type': types.LOAD_SUCCESS,
           res
         })
       } else {
         return dispatch({
-          'type': types.LOAD_FAIL, 
+          'type': types.LOAD_FAIL,
           res
         })
       }
     }).catch((err) => {
       return dispatch({
-        'type': types.LOAD_FAIL, 
+        'type': types.LOAD_FAIL,
         err
       })
     })

@@ -1,5 +1,8 @@
 import style from './admin-header.scss'
-import React, { Component, PropTypes } from 'react'
+import React, {
+  Component,
+  PropTypes
+} from 'react'
 import classnames from 'classnames'
 
 class Header extends Component {
@@ -14,21 +17,24 @@ class Header extends Component {
     'className': ''
   }
 
-  render () {
-    let { user, className } = this.props
-    let classes = classnames(style.wrap, className)
+  render() {
+    let {
+      user,
+      className
+    } = this.props
 
     return (
-      <div className={ classes }>
-        <div className={ style.logo }>
+      <div className={ classnames(style.wrap, `ui menu`, className) }>
+        <div className={ classnames(style.logo, `header item`) }>
           <i className='icon settings'></i>
-          管理后台
         </div>
-        <nav className={ style.nav }>
-          <a href="/">返回首页</a>
-        </nav>
-        <div className={ style.user }>
-          { user.name }
+        <div className='right menu'>
+          <a href='/' className='header item'>
+            <i className='icon home'></i>
+          </a>
+          <div className={ classnames(style.user, `ui dropdown item`) }>
+            { user.name }
+          </div>
         </div>
       </div>
     )

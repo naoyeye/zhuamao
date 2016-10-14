@@ -2,33 +2,9 @@
 * @Author: hanjiyun
 * @Date:   2016-09-22 13:46:16
 * @Last Modified by:   hanjiyun
-* @Last Modified time: 2016-09-22 14:08:31
+* @Last Modified time: 2016-09-27 11:03:52
 */
-
 
 @import "~common/css/_variables";
 @import "~common/css/_mixins";
 
-
-.wrap {
-  padding: 20px;
-  background-color: $black;
-  color: $white;
-
-  .logo {
-    display: inline-block;
-  }
-
-  .nav {
-    margin-left: 20px;
-    display: inline-block;
-  }
-
-  .user {
-    float: right;
-  }
-
-  a {
-    color: $white;
-  }
-}

@@ -25,36 +25,35 @@ module.exports = function(customConfig, NODE_ENV) {
       sourceMapFilename: 'debugging/[file].map'
     },
     module: {
-      loaders: [
-        { 
-          'test': /\.css$/, 
-          'loader': ExtractTextPlugin.extract('style', cssLoader.join('!')) 
-        },
-        { 
-          'test': /\.scss$/, 
-          'loader': ExtractTextPlugin.extract('style', scssLoader.join('!')) 
-        },
-        {
-          'test': /\.(woff|woff2|ttf|eot|otf)$/,
-          'loader': 'file?name=fonts/[name].[ext]!static'
-        },
-        {
-          'test': /\.(png|jpg|jpeg|gif)$/i,
-          'loader': 'url?limit=250000'
-        },
-        {
-          'test': /\.(js|jsx)$/,
-          'exclude': /node_modules/,
-          'loader': 'babel-loader',
-          'query': {
-            'cacheDirectory': false,
-            'presets': ["es2015", "stage-0", "react"],
-            'plugins': ['transform-decorators-legacy']
-          }
+      preLoaders: [{
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }],
+      loaders: [{
+        'test': /\.css$/,
+        'loader': ExtractTextPlugin.extract('style', cssLoader.join('!'))
+      }, {
+        'test': /\.scss$/,
+        'loader': ExtractTextPlugin.extract('style', scssLoader.join('!'))
+      }, {
+        'test': /\.(woff|woff2|ttf|eot|otf)$/,
+        'loader': 'file?name=fonts/[name].[ext]!static'
+      }, {
+        'test': /\.(png|jpg|jpeg|gif)$/i,
+        'loader': 'url?limit=250000'
+      }, {
+        'test': /\.(js|jsx)$/,
+        'exclude': /node_modules/,
+        'loader': 'babel-loader',
+        'query': {
+          'cacheDirectory': false,
+          'presets': ["es2015", "stage-0", "react"],
+          'plugins': ['transform-decorators-legacy']
         }
-      ]
+      }]
     },
-    postcss: function (webpack) {
+    postcss: function(webpack) {
       return [autoprefixer]
     },
     resolve: {
@@ -69,13 +68,12 @@ module.exports = function(customConfig, NODE_ENV) {
         './app/static_resource',
       ]
     },
-    externals: {
-    },
+    externals: {},
     plugins: [],
     target: 'web'
   }
 
-  customConfig.plugins = defaultConfig.plugins.concat(customConfig.plugins||[])
+  customConfig.plugins = defaultConfig.plugins.concat(customConfig.plugins || [])
 
   var result = Object.assign({}, defaultConfig, customConfig)
 

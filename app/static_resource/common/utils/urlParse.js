@@ -4,13 +4,13 @@
 
 import json2string from './json2string'
 
-export const getQuery = function (url, name){
+export const getQuery = function(url, name) {
   let query = url.indexOf('?') > 0 ? url.split('?').pop() : window.location.search.substring(1)
   let vars = query.split('&')
   let result = {}
 
-  for (let i = 0,len = vars.length;i < len;i++) {
-    let pair = vars[i].split('=');
+  for (let i = 0, len = vars.length; i < len; i++) {
+    let pair = vars[i].split('=')
     if (name && pair[0] === name) {
       return pair[1]
     }
@@ -19,7 +19,7 @@ export const getQuery = function (url, name){
     }
   }
 
-  if (name && !Object.keys(params).includes(name)) {
+  if (name && !Object.keys(result).includes(name)) {
     return null
   }
 
@@ -27,7 +27,7 @@ export const getQuery = function (url, name){
 }
 
 
-export const urlWithQuery = function (url, query, encode=false) {
+export const urlWithQuery = function(url, query, encode = false) {
   let originWithPath = url.split('?').shift()
   let oldQuery = getQuery(url)
   let paramsObj = Object.assign(oldQuery, query)
@@ -36,13 +36,13 @@ export const urlWithQuery = function (url, query, encode=false) {
   return originWithPath + '?' + params
 }
 
-export const compileUrl = function (url, data) {
+export const compileUrl = function(url, data) {
   let _url = url
 
   if (data) {
-    Object.keys(data).map( (key) => {
-      let re = new RegExp(':'+key,'gi')
-      _url = _url.replace(re,data[key])
+    Object.keys(data).map((key) => {
+      let re = new RegExp(':' + key, 'gi')
+      _url = _url.replace(re, data[key])
     })
   }
 
@@ -53,12 +53,12 @@ export const proxy2market = function(url) {
   let _url = url
   let _MARKET_API_BASE_URI = window._MARKET_API_BASE_URI
 
-  if(_url.startsWith('/api/')) {
-    let market_api_url = 'https://market.douban.com/api/'
-    if ("undefined" != typeof _MARKET_API_BASE_URI) {
-      market_api_url = _MARKET_API_BASE_URI
+  if (_url.startsWith('/api/')) {
+    let marketApiUrl = 'https://market.douban.com/api/'
+    if (typeof _MARKET_API_BASE_URI !== 'undefined') {
+      marketApiUrl = _MARKET_API_BASE_URI
     }
-    _url = _url.replace('/api/', market_api_url)
+    _url = _url.replace('/api/', marketApiUrl)
   }
 
   return _url

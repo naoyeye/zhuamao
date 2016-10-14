@@ -1,5 +1,5 @@
 import style from './header.scss'
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import Logo from 'common/components/logo'
 
 class Header extends Component {
@@ -20,12 +20,12 @@ class Header extends Component {
   //   })
   // }
 
-  render () {
+  render() {
     return (
       <div className={ style.wrap }>
         <Logo />
         <nav>
-          <a href="/admin">管理后台</a>
+          <a href='/admin'>管理后台</a>
         </nav>
       </div>
     )
