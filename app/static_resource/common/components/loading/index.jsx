@@ -1,18 +1,21 @@
 import style from './loading.scss'
 import React, { PropTypes, Component } from 'react'
+import Loader from 'halogen/ScaleLoader'
 
 class Loading extends Component {
 
   static propTypes = {
     'color': PropTypes.string,
     'width': PropTypes.number,
-    'height': PropTypes.number
+    'height': PropTypes.number,
+    'margin': PropTypes.number
   }
 
   static defaultProps = {
-    'color': '#fff',
-    'width': 40,
-    'height': 40
+    'color': '#ccc',
+    'height': 20,
+    'width': 2,
+    'margin': 1
   }
 
   constructor(props) {
@@ -20,23 +23,35 @@ class Loading extends Component {
   }
 
   render() {
-    if (supportSvg()) {
-      // const { width, height, color } = this.props
-      return (
-        <div className={ style.loading + ' loadicon'}>加载中</div>
-        // <div className={ style.loading + ' loadicon'}
-          // dangerouslySetInnerHTML={{ __html: SVG }}></div>
-      )
-    } else {
-      return (<span>正在加载...</span>)
-    }
+    // if (supportSvg()) {
+    //   const { height, width, color, margin } = this.props
+
+    //   return (
+    //     <Loader className={ style.loading }
+    //       height={ height + `px` }
+    //       width={ width + `px` }
+    //       color={ color }
+    //       margin={ margin + `px` } />
+    //   )
+    // } else {
+    //   return (<span>正在加载...</span>)
+    // }
+    const { height, width, color, margin } = this.props
+
+    return (
+      <Loader className={ style.loading }
+        height={ height + `px` }
+        width={ width + `px` }
+        color={ color }
+        margin={ margin + `px` } />
+    )
   }
 
 }
 
-// helper
-let supportSvg = () => {
-  return document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1')
-}
+// // helper
+// let supportSvg = () => {
+//   return document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#BasicStructure', '1.1')
+// }
 
 export default Loading

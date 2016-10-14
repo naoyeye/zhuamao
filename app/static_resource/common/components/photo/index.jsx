@@ -37,6 +37,7 @@ class Photo extends Component {
     let classes = classnames(style.wrap, style[ratioClasses], className, {
       'loaded': this.state.loaded && !isBackground
     })
+
     return (
       <div className={ classes }>
         { this.renderImage() }
@@ -58,6 +59,7 @@ class Photo extends Component {
       return (
         <div className={ style.box }>
           <Loading />
+
           {(() => {
             if (lazyload) {
               return (

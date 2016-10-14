@@ -39,7 +39,7 @@ class Lazyload extends Component {
     let dom = ReactDom.findDOMNode(this)
     let parent = dom ? dom.parentNode : null
     let rect = parent && parent.getBoundingClientRect ? parent.getBoundingClientRect() : null
-    console.log(rect)
+    // console.log(rect)
     if (!rect) {
       this.setState({
         'load': true
@@ -73,7 +73,7 @@ class Lazyload extends Component {
   }
 
   display() {
-    console.log(1)
+    // console.log(1)
     this.setState({
       'load': true
     })

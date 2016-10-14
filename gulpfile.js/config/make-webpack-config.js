@@ -25,11 +25,11 @@ module.exports = function(customConfig, NODE_ENV) {
       sourceMapFilename: 'debugging/[file].map'
     },
     module: {
-      preLoaders: [{
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      }],
+      // preLoaders: [{
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader'
+      // }],
       loaders: [{
         'test': /\.css$/,
         'loader': ExtractTextPlugin.extract('style', cssLoader.join('!'))
@@ -65,7 +65,7 @@ module.exports = function(customConfig, NODE_ENV) {
       ],
       modulesDirectories: [
         'node_modules',
-        './app/static_resource',
+        './app/static_resource'
       ]
     },
     externals: {},
