@@ -3863,9 +3863,9 @@ mocha@^2.5.3:
     supports-color "1.2.0"
     to-iso-string "0.0.2"
 
-moment@2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.11.0.tgz#584f5fb87c1f637f12937edce127dde2d206d705"
+moment@2.29.2:
+  version "2.29.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.2.tgz#00910c60b20843bcba52d37d58c628b47b1f20e4"
 
 mongofilter@~1.0.5:
   version "1.0.5"
